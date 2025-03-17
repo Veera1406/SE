@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Municipal Waste Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1 id="title">Municipal Waste Management</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showSection('home')" id="home-nav">Home</a></li>
+                <li><a href="#" onclick="openModal('report-modal')" id="report-nav">Report Waste</a></li>
+                <li><a href="#" onclick="showSection('status')" id="status-nav">Check Status</a></li>
+                <li><a href="#" onclick="showSection('contact')" id="contact-nav">Contact Us</a></li>
+                <li><a href="#" onclick="openModal('login-modal')" id="login-nav">Login / Sign Up</a></li>
+            </ul>
+        </nav>
+
+        <!-- Language Selection -->
+        <label for="language-select">🌐 Choose Language:</label>
+        <select id="language-select" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="hi">हिन्दी</option>
+            <option value="te">తెలుగు</option>
+        </select>
+    </header>
+    
+    <section id="home" class="content-section">
+        <h2 id="welcome-msg">Welcome to Waste Management System</h2>
+        <p id="home-desc">Report unclean areas and help keep your city clean.</p>
+    </section>
+    
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('login-modal')">&times;</span>
+            <h2 id="modal-title">Welcome Back</h2>
+            <form id="login-form">
+                <label id="email-label">Email:</label>
+                <input type="email" id="login-email" required>
+                
+                <label id="password-label">Password:</label>
+                <input type="password" id="login-password" required>
+                
+                <button type="submit" id="login-btn">Login</button>
+                <p><a href="#">Forgot Password?</a></p>
+                <p><a href="#" onclick="showSignupForm()" id="signup-link">Create Account</a></p>
+            </form>
+            
+            <form id="signup-form" style="display: none;">
+                <label id="signup-username-label">Username:</label>
+                <input type="text" id="signup-username" required>
+                
+                <label id="signup-email-label">Email:</label>
+                <input type="email" id="signup-email" required>
+                
+                <label id="signup-password-label">Password:</label>
+                <input type="password" id="signup-password" required>
+                
+                <button type="submit" id="signup-btn">Sign Up</button>
+                <p><a href="#" onclick="showLoginForm()" id="login-link">Already have an account? Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="report-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('report-modal')">&times;</span>
+            <h2 id="report-title">Report Waste</h2>
+            <form id="report-form">
+                <label id="location-label">📍 Location:</label>
+                <input type="text" id="location" name="location" readonly required>
+
+                <label id="description-label">📝 Description:</label>
+                <textarea id="description" required></textarea>
+
+                <label id="upload-label">📷 Upload Image:</label>
+                <button type="button" id="uploadBtn">Upload Image</button>
+                <input type="file" id="imageUpload" accept="image/*" capture="environment" style="display: none;">
+                
+                <button type="submit" id="submit-btn">Submit Report</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Municipal Waste Management. All rights reserved.</p>
+    </footer>
+</body>
+</html>
